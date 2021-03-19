@@ -9,6 +9,8 @@ public class SimpleRun {
                         "applicationContext.xml");
         Person person = context.getBean("myPerson", Person.class);
         person.callYourPet();
+        System.out.println(person.getName());
+        System.out.println(person.getAge());
         context.close();
     }
 }
