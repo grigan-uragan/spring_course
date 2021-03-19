@@ -9,5 +9,6 @@ public class Test1 {
         Pet cat = context.getBean("catBean", Pet.class);
         BCat bCat = context.getBean("BCat", BCat.class);
         Person person = context.getBean("person", Person.class);
+        context.close();
     }
 }

@@ -7,12 +7,11 @@ import org.springframework.stereotype.Component;
 
 @Component // по умолчанию создастся bean с id 'person'
 public class Person {
-    //@Autowired
-    //@Qualifier("dog")
+
     private Pet pet;
-    @Value("${person.name}")
+
     private String name;
-    @Value("${person.age}")
+
     private int age;
 
     public Person() {
@@ -38,8 +37,6 @@ public class Person {
         pet.say();
     }
 
-    //@Autowired
-    //@Qualifier("catBean")
     public void setPet(Pet pet) {
         System.out.println("Class Person: set pet");
         this.pet = pet;

@@ -11,5 +11,6 @@ public class Test2 {
         person.callYourPet();
         System.out.println(person.getName());
         System.out.println(person.getAge());
+        context.close();
     }
 }
