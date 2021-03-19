@@ -1,5 +1,8 @@
 package ru.grigan.spring_course.intro;
 
+import org.springframework.stereotype.Component;
+
+@Component // по умолчанию создастся bean с id 'person'
 public class Person {
     private Pet pet;
     private String name;
