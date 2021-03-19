@@ -1,25 +1,15 @@
 package ru.grigan.spring_course.intro;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
-@Component // по умолчанию создастся bean с id 'person'
 public class Person {
-
     private Pet pet;
-
+    @Value("${person.name}")
     private String name;
-
+    @Value(("${person.age}"))
     private int age;
 
-    public Person() {
-        System.out.println("person bean is created");
-    }
-
-    @Autowired
-    public Person(@Qualifier("BCat") Pet pet) {
+    public Person(Pet pet) {
         this.pet = pet;
         System.out.println("person bean is created");
     }
