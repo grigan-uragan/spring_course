@@ -1,14 +1,27 @@
 package ru.grigan.spring_course.intro;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component // по умолчанию создастся bean с id 'person'
 public class Person {
+    //@Autowired
+    //@Qualifier("dog")
     private Pet pet;
+    @Value("${person.name}")
     private String name;
+    @Value("${person.age}")
     private int age;
 
     public Person() {
+        System.out.println("person bean is created");
+    }
+
+    @Autowired
+    public Person(@Qualifier("BCat") Pet pet) {
+        this.pet = pet;
         System.out.println("person bean is created");
     }
 
@@ -16,18 +29,8 @@ public class Person {
         return name;
     }
 
-    public void setName(String name) {
-        System.out.println("Class Person: set name");
-        this.name = name;
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        System.out.println("Class Person: set age");
-        this.age = age;
     }
 
     public void callYourPet() {
@@ -35,6 +38,8 @@ public class Person {
         pet.say();
     }
 
+    //@Autowired
+    //@Qualifier("catBean")
     public void setPet(Pet pet) {
         System.out.println("Class Person: set pet");
         this.pet = pet;
