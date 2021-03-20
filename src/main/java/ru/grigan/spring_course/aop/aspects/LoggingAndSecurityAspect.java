@@ -12,15 +12,17 @@ public class LoggingAndSecurityAspect {
     @Pointcut("execution(* get*())")
     public void getPointcut(){}
 
-    @Before("getPointcut()")
-    public void beforeGetLoggingAdvice() {
-        System.out.println("beforeGetLoggingAdvice: try to take book/magazine");
+    @Pointcut("execution(* * (..))")
+    public void allMethodLogging(){}
+
+    @Pointcut("execution(public void returnMagazine())")
+    public void onlyReturnMagazineMethodLogging(){}
+
+    @Pointcut("allMethodLogging() && !onlyReturnMagazineMethodLogging()")
+    public void allMethodWithoutReturnMagazine(){}
+
+    @Before("allMethodWithoutReturnMagazine()")
+    public void beforeAllMethodWithoutReturnMagazine() {
+        System.out.println("beforeAllMethodWithoutReturnMagazine: LOG#1");
     }
-
-    @Before("getPointcut()")
-    public void beforeGetSecurityAdvice() {
-        System.out.println("beforeGetSecurityAdvice: check rules");
-    }
-
-
 }
