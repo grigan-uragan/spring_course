@@ -5,15 +5,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class UniLibrary {
 
-    public void getBook(Book book) {
-        System.out.println("We will take " + book + " from universe");
+    public void getBook() {
+        System.out.println("We will take from universe");
     }
 
     public void getMagazine() {
         System.out.println("We will take magazine from universe");
-    }
-
-    public void returnBook(Book book) {
-        System.out.println("we will return " + book + " to universe");
     }
 }
