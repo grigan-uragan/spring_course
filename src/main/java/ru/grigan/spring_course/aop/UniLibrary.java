@@ -13,7 +13,7 @@ public class UniLibrary {
         System.out.println("We will take the magazine from universe");
     }
 
-    public void addBook() {
+    public void addBook(String owner, Book book) {
         System.out.println("We will add the book in universe");
     }
 

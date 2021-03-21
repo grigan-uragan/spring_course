@@ -14,6 +14,7 @@ public class ExceptionHandlingAspects {
     public void beforeGetExceptionHandlingAdvice() {
         System.out.println("beforeGetExceptionHandlingAdvice: "
                 + "catch or handling exception when we try to get book or magazine");
+        System.out.println("------------------------------------------------------");
     }
 
 }

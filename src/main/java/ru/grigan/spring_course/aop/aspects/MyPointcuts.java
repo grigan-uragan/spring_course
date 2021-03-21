@@ -13,6 +13,9 @@ public class MyPointcuts {
     @Pointcut("execution(public void returnMagazine())")
     public void onlyReturnMagazineMethodLogging(){}
 
+    @Pointcut("execution(* add*(..))")
+    public void allAddMethod(){}
+
 //    @Pointcut("allMethodLogging() && !onlyReturnMagazineMethodLogging()")
 //    public void allMethodWithoutReturnMagazine(){}
 }
