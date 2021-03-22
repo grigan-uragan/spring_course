@@ -1,4 +1,4 @@
-package ru.grigan.spring_course.hibernate_relations.entity;
+package ru.grigan.spring_course.hibernate_one_to_one.entity;
 
 import javax.persistence.*;
 

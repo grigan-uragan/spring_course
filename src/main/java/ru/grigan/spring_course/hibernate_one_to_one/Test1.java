@@ -1,14 +1,14 @@
-package ru.grigan.spring_course.hibernate_relations;
+package ru.grigan.spring_course.hibernate_one_to_one;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.grigan.spring_course.hibernate_relations.entity.Detail;
-import ru.grigan.spring_course.hibernate_relations.entity.Employee;
+import ru.grigan.spring_course.hibernate_one_to_one.entity.Detail;
+import ru.grigan.spring_course.hibernate_one_to_one.entity.Employee;
 
-public class Test2 {
+public class Test1 {
     private static final Logger LOG = LoggerFactory.getLogger(Test1.class);
 
     public static void main(String[] args) {
@@ -21,16 +21,11 @@ public class Test2 {
         try {
             session = factory.getCurrentSession();
             session.beginTransaction();
-//            Detail detail = new Detail("Minsk", "12333", "misha@mail.ru");
-//            Employee employee = new Employee("Misha", "Petrov", "Sale", 400);
-//            detail.setEmployee(employee);
-//            employee.setEmpDetail(detail);
-//            session.save(detail);
-//            Detail detail = session.get(Detail.class, 4);
-//            System.out.println(detail.getEmployee());
-            Detail detail = session.get(Detail.class, 4);
-            detail.getEmployee().setEmpDetail(null);
-            session.delete(detail);
+//            Employee employee = session.get(Employee.class, 1);
+//            System.out.println(employee.getEmpDetail());
+            Employee employee = session.get(Employee.class, 2);
+            System.out.println(employee);
+            session.delete(employee);
             session.getTransaction().commit();
             session.close();
         } catch (Exception e) {
