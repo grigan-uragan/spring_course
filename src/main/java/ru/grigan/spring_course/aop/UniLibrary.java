@@ -21,8 +21,9 @@ public class UniLibrary {
         System.out.println("We will add the magazine in universe");
     }
 
-    public void returnBook() {
+    public String returnBook() {
         System.out.println("We will return the book in universe");
+        return "War and peace";
     }
 
     public void returnMagazine() {
