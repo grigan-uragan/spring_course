@@ -1,9 +1,6 @@
 package ru.grigan.spring_course.aop.aspects;
 
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 import ru.grigan.spring_course.aop.Student;
 
@@ -29,10 +26,8 @@ public class LoggingStudentsAspect {
 //        System.out.println("afterGetStudentsReturning: logging getStudents method after execution");
 //    }
 
-    @AfterThrowing(pointcut = "execution(* getStudents())",
-    throwing = "exception")
-    public void afterGetStudentsThrowingLogging(Throwable exception) {
-        System.out.println("afterGetStudentsThrowingLogging: getStudents throw exception: "
-                + exception);
+    @After("execution(* getStudents())")
+    public void afterGetStudentsLogging() {
+        System.out.println("afterGetStudents: logging some thing after getStudents method");
     }
 }
