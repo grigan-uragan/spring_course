@@ -1,4 +1,4 @@
-package ru.grigan.spring_course.hibernate_many_to_one_uni.entity;
+package ru.grigan.spring_course.hibernate.many_to_one_bi.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,8 +21,8 @@ public class Department {
     @Column(name = "min_salary")
     private int minSalary;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "department_id")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH}, mappedBy = "department")
     private List<Employee> employees;
 
     public Department() {
@@ -39,6 +39,7 @@ public class Department {
             employees = new ArrayList<>();
         }
         employees.add(employee);
+        employee.setDepartment(this);
     }
 
     public int getId() {

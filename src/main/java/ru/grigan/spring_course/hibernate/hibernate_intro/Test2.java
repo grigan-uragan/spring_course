@@ -1,11 +1,11 @@
-package ru.grigan.spring_course.hibernate;
+package ru.grigan.spring_course.hibernate.hibernate_intro;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.grigan.spring_course.hibernate.entity.Employee;
+import ru.grigan.spring_course.hibernate.hibernate_intro.entity.Employee;
 
 import java.util.List;
 

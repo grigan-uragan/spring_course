@@ -1,4 +1,4 @@
-package ru.grigan.spring_course.hibernate.entity;
+package ru.grigan.spring_course.hibernate.one_to_one.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -22,6 +22,10 @@ public class Employee {
 
     @Column(name = "salary")
     private int salary;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "details_id")
+    private Detail empDetail;
 
     public Employee() {
     }
@@ -73,6 +77,14 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Detail getEmpDetail() {
+        return empDetail;
+    }
+
+    public void setEmpDetail(Detail empDetail) {
+        this.empDetail = empDetail;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -92,11 +104,13 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" + "id="
-                + id + ", name='"
-                + name + '\'' + ", surname='"
-                + surname + '\'' + ", department='"
-                + department + '\'' + ", salary="
-                + salary + '}';
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", department='" + department + '\'' +
+                ", salary=" + salary +
+                ", empDetail=" + empDetail +
+                '}';
     }
 }

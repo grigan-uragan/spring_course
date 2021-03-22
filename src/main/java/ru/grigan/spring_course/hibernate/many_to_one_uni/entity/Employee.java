@@ -1,4 +1,4 @@
-package ru.grigan.spring_course.hibernate_many_to_one_bi.entity;
+package ru.grigan.spring_course.hibernate.many_to_one_uni.entity;
 
 
 import javax.persistence.*;
@@ -19,11 +19,6 @@ public class Employee {
 
     @Column(name = "salary")
     private int salary;
-
-    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.PERSIST,
-            CascadeType.DETACH, CascadeType.MERGE})
-    @JoinColumn(name = "department_id")
-    private Department department;
 
     public Employee() {
     }
@@ -64,14 +59,6 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
     }
 
     @Override
