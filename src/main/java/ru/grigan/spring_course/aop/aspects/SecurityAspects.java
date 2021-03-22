@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 @Order(10)
 public class SecurityAspects {
 
-    @Before("ru.grigan.spring_course.aop.aspects.MyPointcuts.allGetMethod()")
-    public void beforeGetSecurityAdvice() {
-        System.out.println("beforeGetSecurityAdvice: try to check rules");
-        System.out.println("------------------------------------------------------");
-    }
+//    @Before("ru.grigan.spring_course.aop.aspects.MyPointcuts.allGetMethod()")
+//    public void beforeGetSecurityAdvice() {
+//        System.out.println("beforeGetSecurityAdvice: try to check rules");
+//        System.out.println("------------------------------------------------------");
+//    }
 }
 

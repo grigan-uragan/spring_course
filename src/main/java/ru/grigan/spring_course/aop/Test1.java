@@ -10,5 +10,6 @@ public class Test1 {
         Book book = context.getBean("book", Book.class);
         library.getBook();
         library.addBook("Grigan", book);
+        context.close();
     }
 }
