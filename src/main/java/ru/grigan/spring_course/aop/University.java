@@ -14,6 +14,8 @@ public class University {
     }
 
     public List<Student> getStudents() {
+        System.out.println("start work method");
+        Student student = students.get(3);
         System.out.println(students);
         return students;
     }
