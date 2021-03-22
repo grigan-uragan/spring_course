@@ -11,12 +11,15 @@ public class NewLoggingAspects {
 
     @Around("execution(public String returnBook())")
     public String aroundReturnBookAdvice(ProceedingJoinPoint proceedingJoinPoint)
-     throws Throwable {
+            throws Throwable {
         System.out.println("start aroundReturnBookAdvice");
-        long start = System.currentTimeMillis();
-        Object result = proceedingJoinPoint.proceed();
-        long finish = System.currentTimeMillis();
-        System.out.println("method returnBook work at " + (finish - start) + "ms");
+        Object result = null;
+        try {
+            result = proceedingJoinPoint.proceed();
+        } catch (Exception e) {
+            System.out.println("aroundReturnBookAdvice: we caught exception - " + e);
+            throw e;
+        }
         System.out.println("finish aroundReturnBookAdvice");
         return (String) result;
     }

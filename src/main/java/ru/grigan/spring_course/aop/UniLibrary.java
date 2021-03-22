@@ -22,6 +22,7 @@ public class UniLibrary {
     }
 
     public String returnBook() {
+        int i  = 10 / 0;
         System.out.println("We will return the book in universe");
         return "War and peace";
     }
